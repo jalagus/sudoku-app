@@ -1,6 +1,10 @@
+body {
+  background-color: #FBEAEB;
+}
+
 .App {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 50px;
   width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -8,17 +12,22 @@
 
 .board {
   display: inline-block;
-  border: 1px solid #ccc;
+  border: 1px solid #aaa;
   padding: 20px;
   background-color: #eeeeee;
   margin-bottom: 10px;
+  border-radius: 5px;
 }
 
-.row {
+.row, .rowDivider {
   display: flex;
 }
 
-.cell {
+.rowDivider {
+  border-bottom: 2px solid black;
+}
+
+.cell, .cellDivider {
   flex: 1;
   border: 1px solid #ccc;
   display: flex;
@@ -27,6 +36,10 @@
   font-size: 20px;
   height: 60px;
   width: 60px;
+}
+
+.cellDivider {
+  border-right: 2px solid black;
 }
 
 input {
@@ -47,6 +60,16 @@ input {
 
 .statusBox {
   position: absolute;
-  background-color: aqua;
-  border: 1px solid black;
+  background-color: #2F3C7E;
+  border-bottom: 2px solid black;
+  padding: 7px;
+  color: #eee;
+  font-size: larger;
+
+  margin-left: auto;
+  margin-right: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;  
 }

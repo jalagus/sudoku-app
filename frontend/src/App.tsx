@@ -44,7 +44,8 @@ const App: React.FC = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ data: board })
-    };    
+    };
+    setStatus("Counting solutions...");
     fetch('http://localhost:8000/check', requestOptions)
       .then(response => response.json())
       .then(data => {
@@ -62,7 +63,8 @@ const App: React.FC = () => {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ data: board })
-    };    
+    };
+    setStatus("Solving...");
     fetch('http://localhost:8000/solve', requestOptions)
       .then(response => response.json())
       .then(data => {
@@ -82,9 +84,9 @@ const App: React.FC = () => {
       <p>Sudoku app with Rust backend for brute force solving.</p>
       <div className="board">
         {board.map((row, rowIndex) => (
-          <div className="row" key={rowIndex}>
+          <div className={(((rowIndex + 1) % 3) == 0) && (rowIndex < 8) ? "rowDivider" : "row"} key={rowIndex}>
             {row.map((col, colIndex) => (
-              <div className="cell" key={colIndex}>
+              <div className={(((colIndex + 1) % 3) == 0) && (colIndex < 8)  ? "cellDivider" : "cell"} key={colIndex}>
                 {renderCell(rowIndex, colIndex)}
               </div>
             ))}
